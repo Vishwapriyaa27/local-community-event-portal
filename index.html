@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+
+    <!-- Main -->
+    <main>
+        <section id="home">
+            <div id="welcomeBanner">
+                Welcome to the Local Community Events Portal!
+                <span class="offer">Special Offer: Register now!</span>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Event Gallery</h2>
+            <table>
+                <caption>Photos from Previous Events</caption>
+                <tr>
+                    <img src="https://source.unsplash.com/featured/?music,concert" ... >
+
+                    <td><img src="event1.jpg" alt="Event 1" title="Music Night" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                    <td><img src="event2.jpg" alt="Event 2" title="Food Fest" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                    <td><img src="event3.jpg" alt="Event 3" title="Art Fair" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                </tr>
+                <tr>
+                    <td><img src="event4.jpg" alt="Event 4" title="Tech Expo" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                    <td><img src="event5.jpg" alt="Event 5" title="Book Reading" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                    <td><img src="event6.jpg" alt="Event 6" title="Community Meet" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="events">
+            <h2>Register for an Event</h2>
+            <form onsubmit="confirmSubmit(); return false;">
+                <label>Name: <input type="text" name="name" placeholder="Your Name" required autofocus></label><br><br>
+                <label>Email: <input type="email" name="email" placeholder="you@example.com" required></label><br><br>
+                <label>Phone: <input type="text" name="phone" onblur="validatePhone(this)"></label><br><br>
+                <label>Date: <input type="date" name="date" required></label><br><br>
+                <label>Event Type:
+                    <select id="eventType" name="eventType" onchange="showFee(this)">
+                        <option value="workshop">Workshop</option>
+                        <option value="seminar">Seminar</option>
+                        <option value="concert">Concert</option>
+                    </select>
+                </label>
+                <span id="feeDisplay" class="highlight"></span><br><br>
+                <label>Message: <textarea name="message" onkeyup="countCharacters(this)"></textarea></label><br>
+                Characters: <span id="charCount">0</span><br><br>
+                <button type="submit" onclick="confirmSubmit()">Submit</button>
+                <button type="button" onclick="clearPreferences()">Clear Preferences</button>
+                <br><br>
+                <output id="formOutput"></output>
+            </form>
+        </section>
+
+        <section class="feedback">
+            <h2>Event Promo Video</h2>
+            <video width="320" height="240" controls oncanplay="videoReady()">
+                <source src="promo.mp4" type="video/mp4">
+                <source src="https://player.vimeo.com/external/373877888.sd.mp4?s=64ad35e1a48902ec3ce5820dd0b3a9fdbe2714c8&profile_id=165" type="video/mp4">
+
+                Your browser does not support the video tag.
+            </video>
+            <div id="videoStatus"></div>
+        </section>
+
+        <section>
+            <h2>Find Nearby Events</h2>
+            <button onclick="findNearbyEvents()">Find Nearby Events</button>
+            <div id="location"></div>
+        </section>
+        <section id="brochure" style="text-align:center; padding: 20px;">
+            <h2>Download Event Brochure</h2>
+            <p>Get all the details about upcoming events in our latest brochure.</p>
+            <a href="event-brochure.pdf" download style="font-size: 18px; color: #2980b9; text-decoration: underline;">
+                📄 Download Brochure (PDF)
+            </a>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Local City Council</p>
+    </footer>
+</body>
+</html>

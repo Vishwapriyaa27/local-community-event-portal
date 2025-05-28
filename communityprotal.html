@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            padding: 8px 12px;
+            transition: background 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background: #f39c12;
+            color: #fff;
+            border-radius: 4px;
+        }
+        #welcomeBanner {
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            padding: 50px;
+            text-align: center;
+            font-size: 1.8rem;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        table {
+            margin: 20px auto;
+            border-spacing: 20px;
+        }
+        .gallery-img {
+            border: 4px solid #ddd;
+            width: 150px;
+            height: auto;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 12px rgba(0,0,0,0.3);
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        form:hover {
+            transform: scale(1.01);
+        }
+        form label {
+            display: block;
+            margin-bottom: 15px;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Raleway', sans-serif;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        form button:hover {
+            background-color: #1abc9c;
+            transform: scale(1.05);
+        }
+        video {
+            display: block;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .feedback, section {
+            padding: 20px;
+        }
+        .event-location {
+            background-color: #ecf0f1;
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="#help.html" target="_blank">Help</a>
+    </nav>
+
+    <main>
+        <section id="home">
+            <div id="welcomeBanner">
+                Welcome to the Local Community Events Portal!<br>
+                <span style="color:yellow; font-weight:bold;">Special Offer: Register now!</span>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Event Gallery</h2>
+            <table>
+                <caption>Photos from Previous Events</caption>
+                <tr>
+                    <td><img src="https://source.unsplash.com/featured/?music,concert" alt="Event 1" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                    <td><img src="https://source.unsplash.com/featured/?food,festival" alt="Event 2" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                    <td><img src="https://source.unsplash.com/featured/?art,exhibition" alt="Event 3" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://source.unsplash.com/featured/?technology,expo" alt="Event 4" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                    <td><img src="https://source.unsplash.com/featured/?book,reading" alt="Event 5" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                    <td><img src="https://source.unsplash.com/featured/?community,people" alt="Event 6" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="events">
+            <h2>Register for an Event</h2>
+            <form onsubmit="confirmSubmit(); return false;">
+                <label>Name:
+                    <input type="text" name="name" placeholder="Your Name" required autofocus>
+                </label>
+                <label>Email:
+                    <input type="email" name="email" placeholder="you@example.com" required>
+                </label>
+                <label>Phone:
+                    <input type="text" name="phone" onblur="validatePhone(this)">
+                </label>
+                <label>Date:
+                    <input type="date" name="date" required>
+                </label>
+                <label>Event Type:
+                    <select id="eventType" name="eventType" onchange="showFee(this)">
+                        <option value="workshop">Workshop</option>
+                        <option value="seminar">Seminar</option>
+                        <option value="concert">Concert</option>
+                    </select>
+                </label>
+                <span id="feeDisplay" class="highlight"></span>
+                <label>Message:
+                    <textarea name="message" onkeyup="countCharacters(this)"></textarea>
+                </label>
+                Characters: <span id="charCount">0</span><br><br>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="clearPreferences()">Clear Preferences</button>
+                <br><br>
+                <output id="formOutput"></output>
+            </form>
+        </section>
+
+        <section class="feedback">
+            <h2>Event Promo Video</h2>
+            <video width="400" height="260" controls oncanplay="videoReady()">
+                <source src="https://player.vimeo.com/external/373877888.sd.mp4?s=64ad35e1a48902ec3ce5820dd0b3a9fdbe2714c8&profile_id=165" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="videoStatus" style="text-align:center;"></div>
+        </section>
+
+        <section class="event-location">
+            <h2>📍 Find Nearby Events</h2>
+            <button onclick="findNearbyEvents()">Locate Me</button>
+            <div id="location" style="margin-top:10px;"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p style="text-align:center;">For any queries, email us at <a href="mailto:community@localevents.org">community@localevents.org</a> or call <strong>+1-234-567-8901</strong>.</p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Local City Council | Designed with ❤️ for Community
+    </footer>
+
+    <script>
+        function validatePhone(input) {
+            const regex = /^\d{10}$/;
+            if (!regex.test(input.value)) {
+                alert("Enter a valid 10-digit phone number.");
+                input.focus();
+            }
+        }
+
+        function showFee(select) {
+            const fees = { workshop: "$10", seminar: "$15", concert: "$20" };
+            document.getElementById("feeDisplay").innerText = "Fee: " + fees[select.value];
+            localStorage.setItem("preferredEvent", select.value);
+        }
+
+        function confirmSubmit() {
+            document.getElementById("formOutput").value = "Registration successful!";
+        }
+
+        function enlargeImage(img) {
+            img.style.width = "200px";
+        }
+
+        function countCharacters(textarea) {
+            document.getElementById("charCount").innerText = textarea.value.length;
+        }
+
+        function videoReady() {
+            document.getElementById("videoStatus").innerText = "Video ready to play";
+        }
+
+        function findNearbyEvents() {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    document.getElementById("location").innerText = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+                },
+                (error) => {
+                    document.getElementById("location").innerText = "Error getting location: " + error.message;
+                },
+                { enableHighAccuracy: true, timeout: 5000 }
+            );
+        }
+
+        function clearPreferences() {
+            localStorage.clear();
+            sessionStorage.clear();
+            alert("Preferences cleared.");
+        }
+
+        window.onload = function() {
+            const preferred = localStorage.getItem("preferredEvent");
+            if (preferred) {
+                document.getElementById("eventType").value = preferred;
+                showFee(document.getElementById("eventType"));
+            }
+        };
+    </script>
+</body>
+</html>
