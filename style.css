@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+nav {
+    background-color: #444;
+    padding: 10px;
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+#welcomeBanner {
+    background-color: #add8e6;
+    padding: 20px;
+    text-align: center;
+}
+.offer {
+    color: red;
+    font-weight: bold;
+}
+.highlight {
+    font-weight: bold;
+    color: green;
+}
+.gallery-img {
+    border: 2px solid #555;
+    width: 100px;
+    height: auto;
+}
+table {
+    margin: auto;
+    border-spacing: 10px;
+}
+caption {
+    font-weight: bold;
+    margin: 10px;
+}
+form {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+video {
+    display: block;
+    margin: 20px auto;
+}
+.feedback {
+    margin: 20px;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #eee;
+}
+form button:hover {
+    background-color: #1abc9c;
+    box-shadow: 0 0 10px #1abc9c;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+nav a {
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #f39c12;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+nav a {
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #f39c12;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+nav a {
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #f39c12;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
